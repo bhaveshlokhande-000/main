@@ -2,5 +2,5 @@ var paragraph = `Thank yous wevk k. Dreamland guest relations.f f with Ronaldo. 
 var patt = /\d{10}/mg;
 var formatSentenses = paragraph.replace(patt, "XXXXXXXXXX").split(".");
 let indexCounter = 1;
-formatSentenses.forEach((sentense, index) => sentense.split(" ").length > 3 && console.log(`${indexCounter++}. ${sentense}.`))
+formatSentenses.forEach((sentense, index) => sentense.split(" ").length > 3 && console.log(`${indexCounter++}. ${sentense}.`));
 
