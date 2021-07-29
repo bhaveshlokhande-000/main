@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>JQuery Assignment</title>
+    <style>
+        /* CSS GOES HERE */
+        .infoPallete {
+            display: none;
+            background-color: black;
+            border: 1px solid orange;
+            margin: 2px;
+        }
+
+        .title,
+        .body {
+            color: orange;
+        }
+
+        #load {
+            background-color: green;
+            width: 100px;
+            height: 40px;
+        }
+
+        #load:hover {
+            color: white;
+            transform: scale(1.2, 1.2);
+        }
+
+        div[id^="pallete"]:hover {
+            transform: perspective(100px) scaleY(1.2);
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="comments" style="border: 1px solid green;padding:1rem;margin-bottom: 0.5rem;">
+
+    </div>
+    <button id="load">Load Data</button>
+    <script>     //JQ LOGIC GOES HERE
+        function createElement(post, id) {
+            var element = `<div id="pallete${id}" class="infoPallete"> 
+                <h3 class="title" > ${post["title"]} </h3>
+                    <p class="body"> ${post["body"]} </p>
+                </div > `;
+
+            return element;
+        }
+
+        $("#load").click(function () {
+            $.get("https://jsonplaceholder.typicode.com/posts", function (data, status) {
+                let timer = 1000;
+                $.each(data, index => {
+                    let post = data[index];
+                    $("div.comments").append(createElement(post, index));
+                    let postId = "#pallete" + index;
+                    setTimeout(() => {
+                        $(postId).fadeIn("slow");
+                    }, timer);
+                    timer = timer + 1000;
+                });
+
+            });
+            $(this).hide();
+        });
+    </script>
+</body>
+
+</html>
