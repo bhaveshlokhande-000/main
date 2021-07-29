@@ -21,4 +21,4 @@ qTeamEntries.forEach(function (qTeam) {
     qTeamsSorted[qTeam[0]] = qTeam[1]
 });
 
-//console.log(qTeamsSorted)
+console.log(qTeamsSorted)
