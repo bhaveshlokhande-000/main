@@ -7,7 +7,7 @@ let qTeams = {
     hr: 10
 };
 
-var qTeamEntries = [];
+let qTeamEntries = [];
 for (var qTeam in qTeams) {
     qTeamEntries.push([qTeam, qTeams[qTeam]]);
 }
@@ -16,7 +16,7 @@ qTeamEntries.sort(function (a, b) {
     return b[1] - a[1];
 });
 
-var qTeamsSorted = {}
+let qTeamsSorted = {}
 qTeamEntries.forEach(function (qTeam) {
     qTeamsSorted[qTeam[0]] = qTeam[1]
 });
